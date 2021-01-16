@@ -94,14 +94,13 @@ public class homework2 {
             if (index == 0) {
                 System.arraycopy(arr, index, arr, index + 1, size);
                 arr[index] = value;
+            } else if (index == size) append(value);
+            else {
+                System.arraycopy(arr, 0, arr, 0, index - 1);
+                System.arraycopy(arr, index, arr, index + 1, size - index + 1);
+                arr[index] = value;
+                size++;
             }
-
-            if (index == size) append(value);
-
-            System.arraycopy(arr, 0, arr, 0, index - 1);
-            System.arraycopy(arr, index, arr, index + 1, size - index + 1);
-            arr[index] = value;
-            size++;
         }
 
         public boolean isInArray(int value) {
@@ -211,10 +210,10 @@ public class homework2 {
 //        System.out.println(array);
 //        array.delete(2);
 //        System.out.println(array);
-        array.sortInsert();
+        array.sortBubble();
         System.out.println(array);
         System.out.println(array.hasValue(7));
-        array.insert(3, 3);
+        array.insert(11, 3);
         System.out.println(array);
 //        array.deleteAll(7);
 //        System.out.println(array);
