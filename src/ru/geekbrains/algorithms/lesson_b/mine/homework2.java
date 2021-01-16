@@ -181,7 +181,7 @@ public class homework2 {
 //        boolean deleteAll(int value) { } // by value
 //        boolean deleteAll() { } // clear
 //        void insert(int index, int value) { } // shift the tail
-//        // improve bubble sort (kinda make it better somehow)
+        // improve bubble sort (kinda make it better somehow)
 
         @Override
         public String toString() {
