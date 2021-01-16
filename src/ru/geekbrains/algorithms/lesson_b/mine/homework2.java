@@ -55,6 +55,22 @@ public class homework2 {
             return true;
         }
 
+        public boolean deleteAll(int value) {
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i] == value) {
+                    System.arraycopy(arr, i + 1, arr, i, size - i - 1);
+                    size--;
+                    i--;
+                }
+            }
+            return true;
+        }
+
+        public boolean deleteAll() {
+            size = 0;
+            return true;
+        }
+
         public void append(int value) {
             if (size >= arr.length - 1) {
                 int[] temp = arr;
@@ -63,6 +79,29 @@ public class homework2 {
             }
             arr[size++] = value;
             isSorted = false;
+        }
+
+        public void insert(int index, int value) {
+            if (index > size || index < 0)
+                throw new ArrayIndexOutOfBoundsException("Your index is not correct: " + index);
+
+            if (size >= arr.length - 1) {
+                int[] temp = arr;
+                arr = new int[size * 2];
+                System.arraycopy(temp, 0, arr, 0, size);
+            }
+
+            if (index == 0) {
+                System.arraycopy(arr, index, arr, index + 1, size);
+                arr[index] = value;
+            }
+
+            if (index == size) append(value);
+
+            System.arraycopy(arr, 0, arr, 0, index - 1);
+            System.arraycopy(arr, index, arr, index + 1, size - index + 1);
+            arr[index] = value;
+            size++;
         }
 
         public boolean isInArray(int value) {
@@ -175,7 +214,13 @@ public class homework2 {
         array.sortInsert();
         System.out.println(array);
         System.out.println(array.hasValue(7));
-
+        array.insert(3, 3);
+        System.out.println(array);
+//        array.deleteAll(7);
+//        System.out.println(array);
+//        System.out.println(array.delete());
+//        array.append(3);
+//        System.out.println(array);
     }
 
     private static void standardArrayThings() {
