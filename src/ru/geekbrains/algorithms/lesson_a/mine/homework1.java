@@ -1,4 +1,4 @@
-package ru.geekbrains.algorithms.lesson_a;
+package ru.geekbrains.algorithms.lesson_a.mine;
 
 public class homework1 {
     public static void main(String[] args) {
