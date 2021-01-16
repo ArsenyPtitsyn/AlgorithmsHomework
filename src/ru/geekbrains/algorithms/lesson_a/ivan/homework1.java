@@ -1,6 +1,7 @@
 package ru.geekbrains.algorithms.lesson_a.ivan;
 
 public class homework1 {
+    
     private static int power(int base, int sign) {
         int result = 1;
         for (int i = 0; i < sign; i++)
@@ -9,7 +10,7 @@ public class homework1 {
         return result;
     }
 
-    private static int pe(int base, int sign) {
+    private static int powerUsingParity(int base, int sign) {
         int result = 1;
         while (sign > 0) {
             if (sign % 2 == 0) {
@@ -43,7 +44,7 @@ public class homework1 {
 
     public static void main(String[] args) {
         System.out.println(power(2, 9));
-        System.out.println(pe(2, 10));
+        System.out.println(powerUsingParity(2, 10));
 
         int[] array = {5, 1, 4, -2, 0, 3};
         System.out.println(arrMin(array));
