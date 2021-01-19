@@ -1,4 +1,4 @@
-package ru.geekbrains.algorithms.lesson_c.ivan;
+package ru.geekbrains.algorithms.lesson_c.mine;
 
 public class homework3 {
     private static class Stack {
