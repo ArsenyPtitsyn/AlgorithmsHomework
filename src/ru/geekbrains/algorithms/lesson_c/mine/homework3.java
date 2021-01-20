@@ -178,8 +178,83 @@ public class homework3 {
         }
     }
 
+    private static class PriorityQueue {
+        private int[] priorityQueue;
+        private int capacity;
+
+        public PriorityQueue(int initialCapacity) {
+            priorityQueue = new int[initialCapacity];
+            capacity = 0;
+        }
+
+        public PriorityQueue(int... args) {
+            this.capacity = args.length;
+            this.priorityQueue = args;
+        }
+
+        public boolean isFull() {
+            return capacity == priorityQueue.length;
+        }
+
+        public boolean isEmpty() {
+            return capacity == 0;
+        }
+
+        public void swap(int a, int b) {
+            int tmp = priorityQueue[a];
+            priorityQueue[a] = priorityQueue[b];
+            priorityQueue[b] = tmp;
+        }
+
+        public int getMax() {
+            if (capacity == 0) throw new RuntimeException("Empty queue!");
+            if (capacity == 1) return priorityQueue[0];
+            int r = priorityQueue[0];
+            for (int i = 0; i < capacity; i++) {
+                if (priorityQueue[i] > r) {
+                    r = priorityQueue[i];
+                    swap(i, capacity - 1);
+                }
+            }
+            return r;
+        }
+
+        public void insert(int i) {
+            if (isFull()) throw new RuntimeException("Queue is full!");
+            priorityQueue[capacity++] = i;
+        }
+
+        public int remove() {
+            if (isEmpty()) throw new RuntimeException("Queue is empty!");
+            int r = getMax();
+            capacity--;
+            return r;
+        }
+
+        @Override
+        public String toString() {
+            if (priorityQueue == null)
+                return "null";
+            int iMax = capacity - 1;
+            if (iMax == -1)
+                return "[]";
+
+            StringBuilder b = new StringBuilder();
+            b.append('[');
+            for (int i = 0; ; i++) {
+                b.append(priorityQueue[i]);
+                if (i == iMax)
+                    return b.append(']').toString();
+                b.append(", ");
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(stringRevers("Моя твоя не понимай!"));
+//        System.out.println(stringRevers("Моя твоя не понимай!"));
+        PriorityQueue priorityQueue = new PriorityQueue(123, 523, 13, -4, 2352, 9842, 1, 43, 9784);
+        System.out.println(priorityQueue.remove());
+        System.out.println(priorityQueue);
 //        System.out.println(checkBrackets("<> () [] {} {[() <>]}"));
         //Deque
         //Priority Queue
