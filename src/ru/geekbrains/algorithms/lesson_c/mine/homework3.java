@@ -1,7 +1,5 @@
 package ru.geekbrains.algorithms.lesson_c.mine;
 
-import java.util.Arrays;
-
 public class homework3 {
     private static class Stack {
         private int[] stack;
