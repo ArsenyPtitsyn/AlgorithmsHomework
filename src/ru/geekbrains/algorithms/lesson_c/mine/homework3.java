@@ -1,5 +1,7 @@
 package ru.geekbrains.algorithms.lesson_c.mine;
 
+import java.util.Arrays;
+
 public class homework3 {
     private static class Stack {
         private int[] stack;
@@ -34,6 +36,23 @@ public class homework3 {
             return stack[head];
         }
 
+    }
+
+    private static String stringRevers(String input) {
+        int size = input.length();
+        Stack st = new Stack(size);
+        // Заполняем стек буковками из нашей строки.
+        for (int i = 0; i < size; i++) {
+            char ch = input.charAt(i);
+            st.push(ch);
+        }
+        // Вынимаем из стека в массив char все символы подряд.
+        char[] output = new char[size];
+        for (int i = 0; i < size; i++) {
+            output[i] = (char) st.pop();
+        }
+        // Превращаем массив char в строку и возвращаем.
+        return new String(output);
     }
 
     private static int checkBrackets(String input) {
@@ -107,7 +126,8 @@ public class homework3 {
     }
 
     public static void main(String[] args) {
-        System.out.println(checkBrackets("<> () [] {} {[() <>]}"));
+        System.out.println(stringRevers("Моя твоя не понимай!"));
+//        System.out.println(checkBrackets("<> () [] {} {[() <>]}"));
         //Deque
         //Priority Queue
     }
