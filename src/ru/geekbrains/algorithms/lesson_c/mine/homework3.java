@@ -85,8 +85,8 @@ public class homework3 {
         private int tail;
         private int capacity;
 
-        public Queue(int initial) {
-            queue = new int[initial];
+        public Queue(int initialCapacity) {
+            queue = new int[initialCapacity];
             head = 0;
             tail = -1;
             capacity = 0;
@@ -121,6 +121,61 @@ public class homework3 {
             return temp;
         }
 
+    }
+
+    private static class Deque {
+        private int[] deque;
+        private int head;
+        private int tail;
+        private int capacity;
+
+        public Deque(int initialCapacity) {
+            deque = new int[initialCapacity];
+            head = 0;
+            tail = -1;
+            capacity = 0;
+        }
+
+        public boolean isEmpty() {
+            return capacity == 0;
+        }
+
+        public boolean isFull() {
+            return capacity == deque.length;
+        }
+
+        public void insertIntoTail(int i) {
+            if (isFull()) throw new RuntimeException("Deque is full!");
+            if (tail == deque.length -1)
+                tail = -1;
+            deque[++tail] = i;
+            capacity++;
+        }
+
+        public void insertIntoHead(int i) {
+            if (isFull()) throw new RuntimeException("Deque is full!");
+            if (head == 0)
+                head = deque.length;
+            deque[--head] = i;
+            capacity++;
+        }
+
+        public int removeFromHead() {
+            if (isEmpty()) throw new RuntimeException("Deque is empty!");
+            int temp = deque[head++];
+            head %= deque.length; //if (head == queue.length) head = 0;
+            capacity--;
+            return temp;
+        }
+
+        public int removeFromTail() {
+            if (isEmpty()) throw new RuntimeException("Deque is empty!");
+            int temp = deque[tail--];
+            if (tail == -1)
+                tail = deque.length - 1;
+            capacity--;
+            return temp;
+        }
     }
 
     public static void main(String[] args) {
