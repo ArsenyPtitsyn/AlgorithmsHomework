@@ -1,16 +1,17 @@
 package ru.geekbrains.algorithms.lesson_d.mine;
 
+import java.util.Iterator;
 import java.util.Objects;
 
-public class homework4 { // Did nothing.(
+public class homework4 {
     // class iterator
     // reset()
     // next(), prev(for dll)
     // getCurrent()
     // atEnd()
-    // insertBefore();
-    // insertAfter();
-    // deleteCurrent();
+    // insertBefore()
+    // insertAfter()
+    // deleteCurrent()
     private static class Cat {
         int age;
         String name;
@@ -42,7 +43,33 @@ public class homework4 { // Did nothing.(
         }
     }
     private static class SingleLinkedList {
-        //here is your path...
+        private class Iterator {
+            Node current;
+            public Iterator() {
+                this.current = head;
+            }
+            public void reset() {
+                current = head;
+            }
+            public void next() {
+                if (isEmpty()) {
+                    current = null;
+                    return;
+                }
+                current = current.next;
+            }
+            public Cat getCurrent() {
+                if (isEmpty()) return null;
+                return current.c;
+            }
+            public void atEnd() {
+                if (isEmpty()) current = null;
+                else {
+                    while (current.next != null)
+                        next();
+                }
+            }
+        }
         private class Node {
             Cat c;
             Node next;
