@@ -1,6 +1,5 @@
 package ru.geekbrains.algorithms.lesson_d.mine;
 
-import java.util.Iterator;
 import java.util.Objects;
 
 public class homework4 {
@@ -9,8 +8,8 @@ public class homework4 {
     // next(), prev(for dll) +-
     // getCurrent() +-
     // atEnd() +-
-    // insertBefore() --
-    // insertAfter() --
+    // insertBefore() -
+    // insertAfter() +-
     // deleteCurrent() --
     private static class Cat {
         int age;
@@ -58,6 +57,16 @@ public class homework4 {
                 }
                 current = current.next;
             }
+            public void prev() {
+                Node previous = head;
+                if (isEmpty() || current == head) {
+                    current = null;
+                }
+                while (!previous.next.equals(current)) {
+                    previous = previous.next;
+                }
+                current = previous;
+            }
             public Cat getCurrent() {
                 if (isEmpty()) return null;
                 return current.c;
@@ -69,6 +78,39 @@ public class homework4 {
                         next();
                 }
             }
+            public void insertBefore(Cat c) {
+                Node n = new Node(c);
+                Node previous = head;
+                if (isEmpty())
+                    n = head;
+                if (current == head) {
+                    n.next = head;
+                    head = n;
+                }
+                while (!previous.next.equals(current)) {
+                    previous = previous.next;
+                }
+                n.next = current;
+                previous.next = n;
+            }
+            public void insertAfter(Cat c) {
+                Node n = new Node(c);
+                n.next = current.next;
+                current.next = n;
+            }
+            public void deleteCurrent() {
+                Node previous = head;
+                if (isEmpty())
+                    throw new RuntimeException("List is empty!");
+                while (!previous.next.equals(current))
+                    previous = previous.next;
+                if (current == head) {
+                    head = head.next;
+                } else {
+                    previous.next = current.next;
+                }
+            }
+
         }
         private class Node {
             Cat c;
