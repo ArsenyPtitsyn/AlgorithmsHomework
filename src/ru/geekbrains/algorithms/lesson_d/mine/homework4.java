@@ -3,14 +3,6 @@ package ru.geekbrains.algorithms.lesson_d.mine;
 import java.util.Objects;
 
 public class homework4 {
-    // class iterator +-
-    // reset() +-
-    // next(), prev(for dll) +-
-    // getCurrent() +-
-    // atEnd() +-
-    // insertBefore() -
-    // insertAfter() +-
-    // deleteCurrent() --
     private static class Cat {
         int age;
         String name;
