@@ -4,14 +4,14 @@ import java.util.Iterator;
 import java.util.Objects;
 
 public class homework4 {
-    // class iterator
-    // reset()
-    // next(), prev(for dll)
-    // getCurrent()
-    // atEnd()
-    // insertBefore()
-    // insertAfter()
-    // deleteCurrent()
+    // class iterator +-
+    // reset() +-
+    // next(), prev(for dll) +-
+    // getCurrent() +-
+    // atEnd() +-
+    // insertBefore() --
+    // insertAfter() --
+    // deleteCurrent() --
     private static class Cat {
         int age;
         String name;
