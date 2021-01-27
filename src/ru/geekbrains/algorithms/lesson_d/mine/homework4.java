@@ -180,6 +180,10 @@ public class homework4 {
 
         }
     }
+
+    private static class DoubleLinkedList extends SingleLinkedList {
+
+    }
     public static void main(String[] args) {
 
     }
