@@ -13,7 +13,16 @@ public class Homework5 {
         return degreeBasis;
     }
 
+    private static int king(int x, int y) {
+        if (x < 0 || y < 0) throw new RuntimeException("incorrect coordinates");
+        if (x == 0 || y == 0) return 1;
+        else {
+            return king(x - 1, y) + king(x, y - 1);
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println(recPow(2, 10));
+        System.out.println(king(2, 3));
     }
 }
