@@ -39,8 +39,16 @@ public class homework7 {
             }
             return false;
         }
+        private int findVertexIndex(char c) {
+            int i;
+            for (i = 0; i < currentSize; i++) {
+                if (vertexList[i].label == c)
+                    return i;
+            }
+            throw new RuntimeException("no such vertices in graph");
+        }
         public void addEdge(char start, char end) {
-            if (!(this.contains(start) || this.contains(end)))
+            if (!(this.contains(start) && this.contains(end)))
                 throw new RuntimeException("no such vertices in graph");
             for (int i = 0; i < currentSize; i++) {
                 if (vertexList[i].label == start) {
@@ -102,6 +110,25 @@ public class homework7 {
                 vertexList[i].wasVisited = false;
             }
         }
+        public void findShortestPath(char start, char end) {
+            Queue queue = new Queue(MAX_VERTICES);
+            int startIndex = this.findVertexIndex(start);
+            int endIndex = this.findVertexIndex(end);
+            vertexList[startIndex].wasVisited = true;
+            queue.insert(startIndex);
+            while (!queue.isEmpty()) {
+                int current = queue.remove();
+                displayVertex(current);
+                if (current == endIndex)
+                    return;
+                int next;
+                while ((next = getUnvisitedVertex(current)) != -1) {
+                    vertexList[next].wasVisited = true;
+                    queue.insert(next);
+                }
+            }
+            resetFlags();
+        }
     }
 
     public static void main(String[] args) {
@@ -111,12 +138,28 @@ public class homework7 {
         g.addVertex('c');
         g.addVertex('d');
         g.addVertex('e');
+        g.addVertex('f');
+        g.addVertex('g');
+        g.addVertex('h');
+        g.addVertex('i');
+        g.addVertex('j');
         g.addEdge('a', 'c');
         g.addEdge('c', 'b');
         g.addEdge('d', 'e');
         g.addEdge('a', 'e');
-        g.depthTraverse();
-        System.out.println();
-        g.widthTraverse();
+        g.addEdge('h', 'b');
+        g.addEdge('g', 'h');
+        g.addEdge('c', 'f');
+        g.addEdge('h', 'g');
+        g.addEdge('c', 'i');
+        g.addEdge('i', 'h');
+        g.addEdge('j', 'g');
+        g.addEdge('f', 'd');
+        g.addEdge('h', 'j');
+        g.addEdge('d', 'i');
+        g.findShortestPath('a', 'e');
+//        g.depthTraverse();
+//        System.out.println();
+//        g.widthTraverse();
     }
 }
