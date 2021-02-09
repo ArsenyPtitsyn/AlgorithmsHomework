@@ -120,9 +120,10 @@ public class homework7 {
                 int current = queue.remove();
                 displayVertex(current);
                 if (current == endIndex)
-                    return;
+                    break;
                 int next;
                 while ((next = getUnvisitedVertex(current)) != -1) {
+
                     vertexList[next].wasVisited = true;
                     queue.insert(next);
                 }
