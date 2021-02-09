@@ -1,6 +1,6 @@
 package ru.geekbrains.algorithms.lesson_a.mine;
 
-public class homework1 {
+public class Homework1 {
     public static void main(String[] args) {
         System.out.println(pow(2,7));
 

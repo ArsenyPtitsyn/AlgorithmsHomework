@@ -2,7 +2,7 @@ package ru.geekbrains.algorithms.lesson_d.mine;
 
 import java.util.Objects;
 
-public class homework4 {
+public class Homework4 {
     private static class Cat {
         int age;
         String name;

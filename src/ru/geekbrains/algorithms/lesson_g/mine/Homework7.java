@@ -3,7 +3,7 @@ package ru.geekbrains.algorithms.lesson_g.mine;
 import ru.geekbrains.algorithms.lesson_c.ivan.Queue;
 import ru.geekbrains.algorithms.lesson_c.ivan.Stack;
 
-public class homework7 {
+public class Homework7 {
     private static class Graph {
         private class Vertex {
             char label;

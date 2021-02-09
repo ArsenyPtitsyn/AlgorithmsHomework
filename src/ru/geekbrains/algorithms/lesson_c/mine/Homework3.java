@@ -1,6 +1,6 @@
 package ru.geekbrains.algorithms.lesson_c.mine;
 
-public class homework3 {
+public class Homework3 {
     private static class Stack {
         private int[] stack;
         private int head;

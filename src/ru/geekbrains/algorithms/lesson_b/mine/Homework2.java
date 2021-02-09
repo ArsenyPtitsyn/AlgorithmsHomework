@@ -2,7 +2,7 @@ package ru.geekbrains.algorithms.lesson_b.mine;
 
 import java.util.Arrays;
 
-public class homework2 {
+public class Homework2 {
     private static class Array {
         private int[] arr;
         private int size;
