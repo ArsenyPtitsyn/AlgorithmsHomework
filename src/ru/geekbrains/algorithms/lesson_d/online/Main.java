@@ -41,7 +41,7 @@ public class Main {
             return String.format("Cat(a=%d,n=%s)", age, name);
         }
     }
-    private static class SingleLinkedList {
+    public static class SingleLinkedList {
         //here is your path...
         private class Node {
             Cat c;

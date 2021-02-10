@@ -21,7 +21,6 @@ public class Online {
         }
     }
     public static class HashCat {
-        private
         private Item[] hashArray;
         private int arraySize;
         private static Item nullItem = new Item(-1);
