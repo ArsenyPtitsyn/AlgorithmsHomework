@@ -1,4 +1,4 @@
-package ru.geekbrains.algorithms.lesson_h.online;
+package ru.geekbrains.algorithms.lesson_h.mine;
 
 public class Online {
     public static class Item {
